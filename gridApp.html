@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<! -------------------------------------------------------------------------->
+<! This is the  "configuration" for your grid -->
+<! IOI is the time in ms between each sound when played in a sequence -->
+<! This file2string will get called for row in range(0, rows) and cols in range(0, cols)
+    and allows you to map grid element (row, col) to sounds in your path. 
+    The formulas inside the string templates ${} get evaluated -->
+<! There should be 6 sounds in sndPaths folder, path[1-6].mp3, and each of length data-soundPathSecs.
+    The paths are in order: [[[0,0], [1,0]],  [1,0], [1,1]],   [1,1], [0,1]],  [0,1], [0,0]],  [0,0], [1,1]],   [0,1], [1,0]] ] -->
+
+<! -- No caps allowed in the data variable names!! -->
+    <! data-audiopaths=""   if you want just want grid, no paths -->
+<div id="config"
+  data-rows="3"
+  data-cols="3"
+  data-ioi="1000"
+  data-file2string="`sndDir/test_spectset2snd_d1.${row}_d0.${col}_v.0.mp3`"
+  data-soundPathSecs="10"
+  data-audiopaths="" <!  `sndPaths/path${pathNum}.mp3`" -->
+>
+<! -------------------------------------------------------------------------->
+
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/appstyle.css">
+        <title>flexbox layout</title>
+        <script type="text/javascript" src="jslibs/raphael.js"></script>
+        <script defer type="text/javascript" src="appscripts/main.js">
+        </script>
+    </head>
+  <body id="body">
+    <div>
+  	<h2 id="title" > Grid & Path Demo </h2> 
+    <div id="PLAYInstructions" class="Instructions">
+        <b>Individual (GAN "Interpolator") samples:</b> Click one to play one. Click and drag to create a path. Click a path to play it. Shift-click to add one elmt to a path, CTL-click to remove one elmt from path. ESC or click body to clear a path. <br>
+
+        <! --  can always set style display = "none"  if you don't want paths-->
+        <span id="RNNspan"
+        <b>Continuous (RNN "Performer") paths:</b> <input type="radio" id="path0" name="paths" value="0" checked="checked"><label for="path1">0</label>,<input type="radio" id="path1" name="paths" value="1"><label for="path1">1</label>,<input type="radio" id="path2" name="paths" value="2"><label for="path2">2</label>,<input type="radio" id="path3" name="paths" value="3"><label for="path3">3</label>,<input type="radio" id="path4" name="paths" value="4"><label for="path4">4</label>,<input type="radio" id="path5" name="paths" value="5"><label for="path5">5</label>,<input type="radio" id="path6" name="paths" value="6"><label for="path1">6</label>&nbsp;&nbsp;&nbsp;<input type=button id=butt value="Go">
+        </span>
+    </div>
+  </div>
+    <div id=wrapper style="position:"relative">
+        <div id="paper">
+        </div>
+        <div id="container">
+        </div>
+    </div>
+
+    <!-- <div id="paper" style="width:982;height: 592;top:0px;left:100px;"> -->
+
+
+</body>
+</html>
+
