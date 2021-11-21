@@ -55,11 +55,11 @@ let playTimer  // ID for timer to set through playList
 let lastSelectedCellID=null
 let dragging=false
 
-const body = document.getElementById("body");
-body.addEventListener('mousedown', function(){
+const sndgrid = document.getElementById("sndgrid");
+sndgrid.addEventListener('mousedown', function(){
 	clearPlaylist()
 })
-body.addEventListener('mouseup', function(){
+sndgrid.addEventListener('mouseup', function(){
 	dragging=false
 })
 
